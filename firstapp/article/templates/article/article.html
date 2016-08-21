@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% block article %}
+<h4>{{ article.article_data }}</h4>
+<h1>{{ article.article_title }}</h1>
+<p>{{ article.article_text }}</p>
+<hr>
+    <div class="row">
+        <div class="col-md-11 col-md-offset-1">
+            <p>Комментарии:</p>
+            {% for comment in comments %}
+            <p>{{ comment.commets_date }}</p>
+            <p>{{ comment.comments_text }}</p>
+            <p>{{ comment.comments_from.username }}</p>
+            <hr>
+            {% endfor %}
+          </div>
+    </div>
+{% if username%}
+<form action="{% url 'addcomment' article.id %}" method="post">
+    <div class="form-group">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" class="btn btn-default" value="Добавить комментарий">
+    </div>
+</form>
+{% endif %}
+{% endblock %}

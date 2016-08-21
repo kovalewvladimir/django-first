@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+{% block article %}
+{% for article in articles %}
+    <h6>{{ article.article_date }}</h6>
+    <h4><a href="{% url 'get' article.id %}">{{ article.article_title }}</a></h4>
+    <p>{{ article.article_text }}</p>
+    <p><a href="{% url 'addlike' article.id %}"><img src="{% static 'article/images.png' %}" width="25" height="25"></a> {{ article.article_likes }}</p>
+    <hr>
+{% endfor %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+        {% if articles.has_previous %}
+            <li><a href="{% url 'page' articles.previous_page_number %}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+        {% else %}
+            <li class="disabled"><span aria-hidden="true">&laquo;</span></li>
+        {% endif %}
+        {% for page in articles.paginator.page_range %}
+            {% if page == articles.number %}
+            <li class="active"><a href="{% url 'page'  page %}">{{ page }}</a></li>
+            {% else %}
+            <li><a href="{% url 'page' page %}">{{ page }}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if articles.has_next %}
+            <li><a href="{% url 'page' articles.next_page_number %}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+        {% else %}
+            <li class="disabled"><span aria-hidden="true">&raquo;</span></li>
+        {% endif %}
+        </ul>
+    </nav>
+{% endblock %}
