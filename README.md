@@ -1,7 +1,5 @@
-# django-first
-##Первый проект на django
-
-# Инструкция 
+# Первый проект на django
+## Инструкция 
 
 Установка easy_install (Система управления пакетами Python)
 ```sh
@@ -14,7 +12,9 @@ sudo easy_install virtualenv
 ```
 
 Настройка виртуального окружения
+
 Ключ `--no-site-packages` не использовать системные библиотеки python
+
 Ключ `-p python3` для python3 
 djangoent - имя папки виртуального окружения
 ```sh
@@ -72,7 +72,9 @@ python manage.py migrate
 ```
 
 Откат миграции бд 
+
 `article` - имя арр
+
 `0002` - версия миграции
 ```sh
 python manage.py migrate article 0002
