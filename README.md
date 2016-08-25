@@ -86,3 +86,28 @@ python manage.py migrate article 0002
 ```sh
 sudo apt-get install libsasl2-dev python-dev libldap2-dev libssl-dev
 ```
+
+## Apache
+
+Установка Apache2
+```sh
+sudo aptitude install libapache2-mod-wsgi
+```
+
+Установка модуля Apache mod-wsgi 
+TODO: aptitude что это?
+```sh
+sudo aptitude install libapache2-mod-wsgi
+```
+
+Создаём virtual host:
+```sh
+sudo nano /etc/apache2/sites-available/domain1.com.conf
+
+
+<VirtualHost *:80>
+        ServerName domain1.com
+        ServerAlias www.domain1.com
+        WSGIScriptAlias / /home/vek/djangoenv/firstapp/firstapp.wsgi
+</VirtualHost>
+```
