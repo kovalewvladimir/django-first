@@ -79,3 +79,10 @@ python manage.py migrate
 ```sh
 python manage.py migrate article 0002
 ```
+
+## LDAP
+
+Исправление ошибки: `fatal error: lber.h`
+```sh
+sudo apt-get install libsasl2-dev python-dev libldap2-dev libssl-dev
+```
