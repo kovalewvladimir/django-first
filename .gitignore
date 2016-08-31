@@ -87,3 +87,10 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# IDEA
+firstapp/*.iml
+firstapp/.idea/*
+
+# private Django
+firstapp/firstapp/private.py

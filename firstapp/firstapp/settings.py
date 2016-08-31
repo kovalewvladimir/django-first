@@ -125,3 +125,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     ('static', os.path.join(BASE_DIR, 'static')),
 ]
+
+
+# LDAP
+import firstapp.private as private
+AUTH_LDAP_SERVER_URI = private.LDAP_SERVER_URI
